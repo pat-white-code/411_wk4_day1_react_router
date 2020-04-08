@@ -2,6 +2,7 @@ import React from 'react'
 import cars from '../cars.json'
 // import material ui components here //
 import {Container, Paper, Chip, Typography, makeStyles} from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import '../../src/car.css';
 // Container, Paper, Chip //
 
@@ -31,8 +32,8 @@ const Car = (props) => {
         }
         return chips
     }
-    const classes = useStyles()
-    console.log('ID', id)
+    const classes = useStyles();
+    console.log('ID', id);
     console.log('CAR', car);
     return (
         <div className='car-container'>
@@ -43,10 +44,11 @@ const Car = (props) => {
                     </Typography>
                     <div>
                         {createChips().map((chip, index) => (
+                            <Link key={index} to='/'>
                                 <Chip 
                                     key={index} 
-                                    label={chip}
-                                    handleDelete={alert}/>
+                                    label={chip} />
+                            </Link>
                             ))}
                     </div>
                 </Paper>
